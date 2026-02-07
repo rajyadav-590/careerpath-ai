@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Discovery - CareerPath AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .questions-page-layout { min-height: 100vh; padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; background-color: var(--background-color); }
+        .questions-card { max-width: 800px; width: 100%; padding: 3rem; margin-top: 2rem; }
+        .question-group { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px dashed #eee; }
+        .question-group:last-child { border-bottom: none; }
+        .question-group h4 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--primary-color); }
+        .option-label { display: block; margin-bottom: 0.5rem; font-weight: 400; cursor: pointer; padding: 0.75rem; border-radius: 8px; border: 1px solid #eee; transition: all 0.2s ease; }
+        .option-label:hover { background-color: #f8faff; border-color: var(--primary-color); }
+        input[type="radio"]:checked + .option-label, input[type="checkbox"]:checked + .option-label { background-color: #e0e7ff; border-color: var(--primary-color); font-weight: 600; }
+        input[type="radio"], input[type="checkbox"] { margin-right: 0.5rem; }
+        textarea, input[type="text"], select { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="questions-page-layout">
+        <h2 class="section-heading text-center">Step 2: Career Discovery Assessment</h2>
+        <p class="text-center text-lg text-muted max-w-2xl">This assessment looks beyond specific technical skills to understand how you think and what drives you.</p>
+        
+        <div class="card questions-card">
+            <form id="questions-form">
+
+                <!-- Q1: General Strengths -->
+                <div class="question-group">
+                    <h4>1. Which of these activities makes you lose track of time? (Select all)</h4>
+                    <label class="option-label"><input type="checkbox" name="q1" value="Analyzing data or solving puzzles"> Analyzing facts, data, or solving complex puzzles</label>
+                    <label class="option-label"><input type="checkbox" name="q1" value="Creative expression"> Creative expression (Writing, Art, Music, Design)</label>
+                    <label class="option-label"><input type="checkbox" name="q1" value="Helping or teaching people"> Helping, teaching, or caring for others</label>
+                    <label class="option-label"><input type="checkbox" name="q1" value="Organizing and leading teams"> Organizing events, leading teams, or strategizing</label>
+                    <label class="option-label"><input type="checkbox" name="q1" value="Building or fixing things"> Building, repairing, or working with physical objects</label>
+                </div>
+                
+                <!-- Q2: Preferred Cognitive Style -->
+                <div class="question-group">
+                    <h4>2. How do you prefer to tackle a major challenge?</h4>
+                    <label class="option-label"><input type="radio" name="q2" value="Logical/Step-by-step" required> Breaking it down into logical, sequential steps</label>
+                    <label class="option-label"><input type="radio" name="q2" value="Intuitive/Big picture" required> Looking at the big picture and finding an intuitive spark</label>
+                    <label class="option-label"><input type="radio" name="q2" value="Collaborative brainstorming" required> Discussing it with a group to gather multiple viewpoints</label>
+                    <label class="option-label"><input type="radio" name="q2" value="Hands-on trial and error" required> Jumping in and trying practical solutions immediately</label>
+                </div>
+
+                <!-- Q3: Environment -->
+                <div class="question-group">
+                    <h4>3. What is your ideal daily work environment?</h4>
+                    <label class="option-label"><input type="radio" name="q3" value="Fast-paced/Dynamic" required> Fast-paced, high-pressure, and constantly changing</label>
+                    <label class="option-label"><input type="radio" name="q3" value="Stable/Structured" required> Calm, predictable, and highly structured</label>
+                    <label class="option-label"><input type="radio" name="q3" value="Creative/Flexible" required> Flexible, informal, and focused on innovation</label>
+                    <label class="option-label"><input type="radio" name="q3" value="Outdoor/Active" required> Active, physical, or involving frequent travel</label>
+                </div>
+
+                <!-- Q4: Values -->
+                <div class="question-group">
+                    <h4>4. What do you value most in your future career? (Select all)</h4>
+                    <label class="option-label"><input type="checkbox" name="q4_values" value="Financial Wealth"> High financial potential</label>
+                    <label class="option-label"><input type="checkbox" name="q4_values" value="Creativity"> Creative freedom and self-expression</label>
+                    <label class="option-label"><input type="checkbox" name="q4_values" value="Job Security"> Long-term stability and security</label>
+                    <label class="option-label"><input type="checkbox" name="q4_values" value="Social Impact"> Making a meaningful impact on society</label>
+                </div>
+
+                <!-- Q5: Technical vs Soft Skills -->
+                <div class="question-group">
+                    <h4>5. What is one skill you are proud of (could be a hobby or academic)?</h4>
+                    <input type="text" name="q5" required placeholder="e.g., Debate, Coding, Sketching, Mathematics, Cooking">
+                </div>
+                
+                <!-- Q6: Communication Preference -->
+                <div class="question-group">
+                    <h4>6. How do you prefer to communicate your ideas?</h4>
+                    <select name="q6" required>
+                        <option value="">-- Select --</option>
+                        <option value="Visual/Drawings">Through visuals, diagrams, or art</option>
+                        <option value="Written/Reports">Through detailed writing or reports</option>
+                        <option value="Verbal/Speaking">Through speaking, presenting, or debating</option>
+                        <option value="Technical/Code">Through technical data, code, or formulas</option>
+                    </select>
+                </div>
+                
+                <!-- Q7: Outcome Preference -->
+                <div class="question-group">
+                    <h4>7. At the end of the day, what outcome makes you feel most satisfied?</h4>
+                    <label class="option-label"><input type="radio" name="q7" value="A finished product" required> Having a tangible product or result in my hands</label>
+                    <label class="option-label"><input type="radio" name="q7" value="Knowledge/Discovery" required> Discovering a new fact or gaining deep knowledge</label>
+                    <label class="option-label"><input type="radio" name="q7" value="Helping an individual" required> Knowing I helped someone solve a personal problem</label>
+                    <label class="option-label"><input type="radio" name="q7" value="Influencing a system" required> Improving a process or influencing how a system works</label>
+                </div>
+
+                <!-- Q8: Personal Interests -->
+                <div class="question-group">
+                    <h4>8. Describe a topic or hobby you could talk about for hours.</h4>
+                    <textarea name="q8" required placeholder="e.g., History, Climate Change, how engines work, Stock markets, Psychology..."></textarea>
+                </div>
+
+                <!-- Q9: Broad Industry Interest -->
+                <div class="question-group">
+                    <h4>9. Which broad sectors interest you? (Select all)</h4>
+                    <label class="option-label"><input type="checkbox" name="q9_industries" value="Science & Healthcare"> Science, Medicine & Healthcare</label>
+                    <label class="option-label"><input type="checkbox" name="q9_industries" value="Tech & Engineering"> Technology, AI & Engineering</label>
+                    <label class="option-label"><input type="checkbox" name="q9_industries" value="Arts & Humanities"> Arts, Media & Literature</label>
+                    <label class="option-label"><input type="checkbox" name="q9_industries" value="Business & Law"> Business, Finance & Law</label>
+                    <label class="option-label"><input type="checkbox" name="q9_industries" value="Public Service"> Education, NGOs & Public Service</label>
+                </div>
+
+                <!-- Q10: Commitment -->
+                <div class="question-group">
+                    <h4>10. How many hours per week can you invest in exploring your path?</h4>
+                    <select name="q10" required>
+                        <option value="">-- Select --</option>
+                        <option value="Low (1-5 hours)">1-5 hours</option>
+                        <option value="Medium (6-15 hours)">6-15 hours</option>
+                        <option value="High (15+ hours)">15+ hours</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-6 w-full">Get My Personalized Roadmap</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

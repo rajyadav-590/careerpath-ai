@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - CareerPath AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .form-page-layout {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, var(--background-color) 0%, #E6E9F7 100%);
+        }
+        .form-card {
+            max-width: 600px;
+            width: 100%;
+            padding: 3rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .input-error {
+            border-color: #EF4444 !important;
+        }
+
+        @media (min-width: 1024px) {
+            .form-page-layout .two-column-layout {
+                gap: 5rem;
+                max-width: 1100px;
+            }
+        }
+        .intro-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-page-layout">
+        <div class="container two-column-layout">
+            <div class="intro-text" style="flex: 1.2;">
+                <h2>Ready to Design Your Career Path?</h2>
+                <p class="text-lg text-muted">Tell us a little about your academic and personal background to start the AI assessment process.</p>
+                <p class="mt-4 text-sm text-muted">This step is crucial for mapping your current position to future opportunities.</p>
+            </div>
+
+            <div class="card form-card" style="flex: 1;">
+                <form id="student-info-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="e.g., Rohan Sharma">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="e.g., rohan@college.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="collegeName">College Name</label>
+                        <input type="text" id="collegeName" name="collegeName" required placeholder="e.g., IIT Delhi">
+                    </div>
+                    <div class="form-group">
+                        <label for="courseBranch">Course / Branch</label>
+                        <input type="text" id="courseBranch" name="courseBranch" required placeholder="e.g., B.Tech Computer Science">
+                    </div>
+                    <div class="form-group">
+                        <label for="yearSemester">Year / Semester</label>
+                        <input type="text" id="yearSemester" name="yearSemester" required placeholder="e.g., 2nd Year / 4th Sem">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">State / City (Optional)</label>
+                        <input type="text" id="city" name="city" placeholder="e.g., Bangalore, Karnataka">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Current Confusion / Message (Optional)</label>
+                        <textarea id="message" name="message" placeholder="What are your biggest career concerns right now?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-accent mt-4 w-full">Submit & Get Results</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
