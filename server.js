@@ -20,7 +20,7 @@ const studentsData = {};
 const GOOGLE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
 
 // NOTE: Ensure your actual Google API key is here.
-const GOOGLE_API_KEY = "enter your api key here"; 
+const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 
 /**
  * Function to call the Google AI API with Universal Prompting
