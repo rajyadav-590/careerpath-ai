@@ -96,15 +96,16 @@ async function generateCareerPathWithAI(studentProfile) {
     };
 
     const payload = {
-        contents: [{ parts: [{ text: userQuery }] }],
-        systemInstruction: { parts: [{ text: systemPrompt }] },
-        // Use generationConfig for structured output (Fixes 400 error)
-        generationConfig: { 
-            responseMimeType: "application/json",
-            responseSchema: responseSchema
-        }
+        contents: [
+            {
+                parts: [
+                    {
+                        text: systemPrompt + "\n\n" + userQuery
+                    }
+                ]
+            }
+        ]
     };
-
     try {
         console.log(`[SERVER] Requesting AI path for ${studentProfile.fullName}...`);
         const response = await fetch(`${GOOGLE_API_URL}?key=${GOOGLE_API_KEY}`, {
