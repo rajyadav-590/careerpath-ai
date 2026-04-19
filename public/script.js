@@ -1,5 +1,5 @@
 // --- Global Utility Functions ---
-
+const API_BASE = "https://careerpath-ai-1irq.onrender.com";
 /**
  * Displays a temporary message box on the screen
  */
@@ -91,7 +91,7 @@ function initGetStartedForm() {
         submitBtn.textContent = "Saving Profile...";
 
         try {
-            const response = await fetch('/api/student-info', {
+            const response = await fetch(`${API_BASE}/api/student-info`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(studentInfo)
@@ -154,7 +154,7 @@ function initQuestionsForm() {
         submitBtn.textContent = "AI is analyzing your path...";
 
         try {
-            const response = await fetch('/api/questions', {
+            const response = await fetch(`${API_BASE}/api/questions`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ studentId, answers })
@@ -192,7 +192,7 @@ function initResultsPage() {
     
     loading.style.display = 'block';
 
-    fetch(`/api/results/${studentId}`)
+    fetch(`${API_BASE}/api/results/${studentId}`)
         .then(res => res.json())
         .then(data => {
             loading.style.display = 'none';
