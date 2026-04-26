@@ -20,7 +20,8 @@ const studentsData = {};
 /**
  * GOOGLE AI API CONFIGURATION
  */
-const GOOGLE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
+const MODEL_ID = "gemini-2.5-flash"; 
+const GOOGLE_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_ID}:generateContent`;
 // NOTE: Ensure your actual Google API key is here.
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 
